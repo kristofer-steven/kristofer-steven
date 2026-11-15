@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 24" width="100%" height="24">
+  <defs>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06050a" stop-opacity="0" />
+      <stop offset="15%" stop-color="#00f0ff" />
+      <stop offset="50%" stop-color="#ff0055" />
+      <stop offset="85%" stop-color="#fcee0a" />
+      <stop offset="100%" stop-color="#06050a" stop-opacity="0" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-50%" width="140%" height="200%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circuit Base Line -->
+  <path d="M 0 12 L 380 12 L 392 4 L 508 4 L 520 12 L 900 12" fill="none" stroke="url(#lineGrad)" stroke-width="1.8" filter="url(#glow)" />
+  <path d="M 400 20 L 500 20" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.5" />
+
+  <!-- Center Cyberpunk HUD Diamonds -->
+  <polygon points="430,12 436,7 442,12 436,17" fill="#00f0ff">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" repeatCount="indefinite" />
+  </polygon>
+  <polygon points="450,12 456,7 462,12 456,17" fill="#ff0055">
+    <animate attributeName="opacity" values="1;0.3;1" dur="1.8s" repeatCount="indefinite" />
+  </polygon>
+  <polygon points="470,12 476,7 482,12 476,17" fill="#fcee0a">
+    <animate attributeName="opacity" values="0.3;1;0.3" dur="1.8s" begin="0.6s" repeatCount="indefinite" />
+  </polygon>
+
+  <!-- Animated Neon Data Packet -->
+  <rect y="10.5" width="45" height="3" fill="#00f0ff" filter="url(#glow)">
+    <animate attributeName="x" from="-50" to="950" dur="3.2s" repeatCount="indefinite" />
+  </rect>
+</svg>
+

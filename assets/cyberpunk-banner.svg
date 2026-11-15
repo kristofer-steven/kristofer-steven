@@ -1,0 +1,203 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="100%" height="260">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06050a" />
+      <stop offset="50%" stop-color="#0d0a18" />
+      <stop offset="100%" stop-color="#070510" />
+    </linearGradient>
+
+    <!-- Neon Cyan Glow -->
+    <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Neon Pink Glow -->
+    <filter id="pinkGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Cyber Grid Pattern -->
+    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00f0ff" stroke-width="0.6" stroke-opacity="0.12" />
+    </pattern>
+
+    <!-- Scanline Pattern -->
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="4" y2="0" stroke="#000000" stroke-width="1.5" stroke-opacity="0.35" />
+    </pattern>
+
+    <!-- Accent Gradient -->
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="50%" stop-color="#ff0055" />
+      <stop offset="100%" stop-color="#fcee0a" />
+    </linearGradient>
+
+    <style>
+      .title {
+        font-family: 'Courier New', Consolas, monospace;
+        font-weight: 900;
+        font-size: 42px;
+        fill: #ffffff;
+        letter-spacing: 5px;
+      }
+      .title-cyan {
+        font-family: 'Courier New', Consolas, monospace;
+        font-weight: 900;
+        font-size: 42px;
+        fill: #00f0ff;
+        letter-spacing: 5px;
+        opacity: 0.75;
+        animation: glitchCyan 3.5s infinite;
+      }
+      .title-pink {
+        font-family: 'Courier New', Consolas, monospace;
+        font-weight: 900;
+        font-size: 42px;
+        fill: #ff0055;
+        letter-spacing: 5px;
+        opacity: 0.75;
+        animation: glitchPink 3.5s infinite;
+      }
+      .subtitle {
+        font-family: 'Courier New', Consolas, monospace;
+        font-weight: 700;
+        font-size: 15px;
+        fill: #00f0ff;
+        letter-spacing: 3px;
+      }
+      .hud-text {
+        font-family: 'Courier New', Consolas, monospace;
+        font-size: 11px;
+        fill: #fcee0a;
+        letter-spacing: 1.5px;
+      }
+      .hud-muted {
+        font-family: 'Courier New', Consolas, monospace;
+        font-size: 11px;
+        fill: #ff0055;
+        letter-spacing: 1.5px;
+      }
+      .scanbar {
+        animation: scanMove 6s linear infinite;
+      }
+      .pulse-node {
+        animation: nodePulse 2.2s ease-in-out infinite;
+      }
+      .pulse-node-delayed {
+        animation: nodePulse 2.2s ease-in-out 1.1s infinite;
+      }
+      .data-flow {
+        stroke-dasharray: 8 6;
+        animation: dashFlow 1.5s linear infinite;
+      }
+      .cursor-blink {
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes glitchCyan {
+        0%, 88%, 100% { transform: translate(0, 0); opacity: 0; }
+        90% { transform: translate(-4px, -1px); opacity: 0.85; }
+        92% { transform: translate(3px, 1px); opacity: 0.4; }
+        94% { transform: translate(-2px, 0); opacity: 0.8; }
+      }
+      @keyframes glitchPink {
+        0%, 88%, 100% { transform: translate(0, 0); opacity: 0; }
+        90% { transform: translate(4px, 1px); opacity: 0.85; }
+        92% { transform: translate(-3px, -1px); opacity: 0.4; }
+        94% { transform: translate(2px, 0); opacity: 0.8; }
+      }
+      @keyframes scanMove {
+        0% { transform: translateY(-20px); }
+        100% { transform: translateY(280px); }
+      }
+      @keyframes nodePulse {
+        0%, 100% { opacity: 0.35; r: 3.5px; }
+        50% { opacity: 1; r: 5.5px; }
+      }
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -28; }
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <!-- Main Background -->
+  <rect width="900" height="260" fill="url(#bgGrad)" rx="6" />
+  <rect width="900" height="260" fill="url(#cyberGrid)" rx="6" />
+
+  <!-- Decorative Background Neural Network (Right Side) -->
+  <g opacity="0.75">
+    <!-- Neural Connections -->
+    <line x1="650" y1="55" x2="730" y2="95" stroke="#00f0ff" stroke-width="1.2" class="data-flow" />
+    <line x1="650" y1="125" x2="730" y2="95" stroke="#ff0055" stroke-width="1.2" class="data-flow" />
+    <line x1="650" y1="125" x2="730" y2="165" stroke="#00f0ff" stroke-width="1.2" class="data-flow" />
+    <line x1="650" y1="195" x2="730" y2="165" stroke="#fcee0a" stroke-width="1.2" class="data-flow" />
+    <line x1="730" y1="95" x2="820" y2="130" stroke="#00f0ff" stroke-width="1.5" class="data-flow" />
+    <line x1="730" y1="165" x2="820" y2="130" stroke="#ff0055" stroke-width="1.5" class="data-flow" />
+    <line x1="730" y1="95" x2="730" y2="165" stroke="#00f0ff" stroke-width="0.8" stroke-opacity="0.4" />
+
+    <!-- Neural Nodes -->
+    <circle cx="650" cy="55" r="4" fill="#00f0ff" filter="url(#cyanGlow)" class="pulse-node" />
+    <circle cx="650" cy="125" r="4" fill="#ff0055" filter="url(#pinkGlow)" class="pulse-node-delayed" />
+    <circle cx="650" cy="195" r="4" fill="#fcee0a" class="pulse-node" />
+    <circle cx="730" cy="95" r="5" fill="#00f0ff" filter="url(#cyanGlow)" class="pulse-node-delayed" />
+    <circle cx="730" cy="165" r="5" fill="#ff0055" filter="url(#pinkGlow)" class="pulse-node" />
+    <circle cx="820" cy="130" r="6" fill="#fcee0a" filter="url(#cyanGlow)" class="pulse-node-delayed" />
+  </g>
+
+  <!-- Outer Cyberpunk Chamfered Frame -->
+  <polygon points="18,12 865,12 888,35 888,248 35,248 12,225 12,18" fill="none" stroke="#00f0ff" stroke-width="1.8" stroke-opacity="0.7" />
+  <polygon points="24,18 860,18 882,40 882,242 40,242 18,220 18,24" fill="none" stroke="#ff0055" stroke-width="0.8" stroke-opacity="0.45" />
+
+  <!-- Corner HUD Accents -->
+  <path d="M 12 45 L 12 18 L 45 18" fill="none" stroke="#fcee0a" stroke-width="3" />
+  <path d="M 855 248 L 888 248 L 888 215" fill="none" stroke="#fcee0a" stroke-width="3" />
+  <rect x="48" y="8" width="90" height="6" fill="#fcee0a" />
+  <rect x="145" y="8" width="25" height="6" fill="#ff0055" />
+
+  <!-- Top HUD Telemetry -->
+  <text x="45" y="44" class="hud-text">SYS.ID // KRISTOFER_STEVEN_v2.6</text>
+  <text x="680" y="44" class="hud-muted">[NEURAL_LINK: ESTABLISHED]</text>
+
+  <!-- Glitch Main Title -->
+  <g transform="translate(45, 118)">
+    <text x="0" y="0" class="title-cyan">KRISTOFER STEVEN</text>
+    <text x="0" y="0" class="title-pink">KRISTOFER STEVEN</text>
+    <text x="0" y="0" class="title" filter="url(#cyanGlow)">KRISTOFER STEVEN</text>
+  </g>
+
+  <!-- Neon Divider Bar -->
+  <rect x="45" y="136" width="520" height="3" fill="url(#neonGrad)" />
+
+  <!-- Subtitle with Blinking Terminal Cursor -->
+  <text x="45" y="168" class="subtitle">
+    &gt; FULL-STACK ENGINEER // AI &amp; ML ENTHUSIAST<tspan class="cursor-blink" fill="#fcee0a">_</tspan>
+  </text>
+
+  <!-- Bottom HUD Status Strip -->
+  <rect x="45" y="198" width="440" height="26" fill="#120d24" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.5" rx="2" />
+  <circle cx="62" cy="211" r="4" fill="#00ff9f">
+    <animate attributeName="opacity" values="1;0.2;1" dur="1.4s" repeatCount="indefinite" />
+  </circle>
+  <text x="76" y="215" class="hud-text">MODE: ARCHITECTING INTELLIGENT SYSTEMS</text>
+
+  <!-- Moving Scanline Bar -->
+  <rect x="0" y="0" width="900" height="14" fill="#00f0ff" opacity="0.06" class="scanbar" />
+
+  <!-- CRT Scanlines Overlay -->
+  <rect width="900" height="260" fill="url(#scanlines)" pointer-events="none" />
+</svg>
+
